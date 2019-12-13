@@ -8,10 +8,137 @@
     <meta name="description" content="Flies Smacker" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/form.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/menu.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/overlay.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/soup.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/start-screen.css" />
     <title>Flies Smacker</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="sitewrapper">
+      <div class="navbar">
+        <img
+          src="http://petragergely.dk/kea/imgs/flylogo.png"
+          alt="logo"
+          height="80"
+          id="logo"
+        />
+        <div id="slogan">
+          <p>More than 300 games for 9-year olds</p>
+        </div>
+        <nav>
+          <a href="#">About us</a>
+          <a href="#">Games</a>
+          <a href="#">Shop</a>
+          <a href="#" id="login">Log in</a>
+        </nav>
+        <div id="mobileMenu"></div>
+      </div>
+      <div id="overlays">
+        <!--start screen start-->
+        <div class="overlayWrapper" id="start-screen">
+          <!--<div class="startImg"><img src="img/background.png" /></div> -->
+          <div class="startWrapper">
+            <!-- <div class="headerText"> -->
+            <h1 class="centered">Smack the flies before they eat the cake!</h1>
+            <!-- </div> -->
+            <div class="startBtn"></div>
+
+            <a href="#">Already have an account? Click here to Log In</a>
+          </div>
+        </div>
+        <!-- start screen end-->
+
+        <!--Signup screen start-->
+        <div class="overlayWrapper hidden" id="signup-screen">
+          <!-- this is the actual wrapper and size of the form and desc. -->
+          <div class="overlayFormWrapper">
+            <div id="remove-after-signup">
+              <h1 class="centered">Amazing score!</h1>
+              <p class="centered">
+                You scored <span id="points">x</span> points +
+                <span id="timerPoints">x</span> timer points! That's AMAZING!
+              </p>
+              <p class="centered">Sign up, so we can save your progress:</p>
+              <form id="signUp">
+                <label for="name">Your username:</label><br />
+                <input type="text" name="name" required /><br />
+                <label for="email">Your e-mail address:</label><br />
+                <input type="text" name="email" required /><br />
+                <label for="password">Your password:</label><br />
+                <input type="password" name="password" required /><br />
+                <div class="checkboxWrapper">
+                  <input type="checkbox" name="newsletter" />
+                  <label for="newsletter">Can we send you newsletter?</label
+                  ><br />
+                </div>
+                <button type="submit" class="signUpBtn">
+                  Sign up and continue playing
+                </button>
+              </form>
+
+              <a href="#" class="centered"
+                >Do you already have an account? Sign in here.</a
+              >
+            </div>
+            <div class="react-button-holder hidden"></div>
+          </div>
+        </div>
+        <!--Signup screen end-->
+
+        <!--you won screen start-->
+        <div class="overlayWrapper hidden" id="youWon-screen">
+          <div class="overlayContent">
+            <h1 class="centered">You won!</h1>
+            <h2 class="centered">Your score: <span id="wonScore">50</span></h2>
+            <div class="leaderboardWrapper">
+              <div>
+                <p>Best player</p>
+                <span classs="bestPlayer1">100</span>
+              </div>
+              <div>
+                <p>Second best player</p>
+                <span classs="bestPlayer2">77</span>
+              </div>
+              <div>
+                <p class="you">You</p>
+                <span class="bestplayer3 you">50</span>
+              </div>
+              <div>
+                <p>Fourth best player</p>
+                <span classs="bestPlayer4">33</span>
+              </div>
+            </div>
+            <div class="youWonBtn"></div>
+          </div>
+        </div>
+        <!--you won screen end-->
+
+        <!--you lost screen start-->
+        <div class="overlayWrapper hidden" id="youLost-screen">
+          <div class="overlayContent">
+            <h1 class="centered">You lost!</h1>
+            <h2 class="centered">Try again or try our Fancy Fly Smacker!</h2>
+            <img
+              src="img/lost-upsell-gold-smacker.png"
+              alt="fancy fly smacker"
+              id="upsellImg"
+            />
+            <div class="multipleBtnWrapper">
+              <div class="youLostBtn"></div>
+              <button class="overlayBtn" href="cart.html">Buy now</button>
+            </div>
+          </div>
+        </div>
+        <!--you lost screen end-->
+      </div>
+    </div>
+
     <div id="root"></div>
+
+    <script src="signupform.js"></script>
+    <script src="menu.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import "./App.css";
 import Level from "./Level/Level";
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     number: 1,
     countdown: 60,
     imageIndex: 0,
-    numberOfFlies: 4,
+    numberOfFlies: 1,
     minSpeed: 1,
     maxSpeed: 6
   };
@@ -26,16 +27,16 @@ class App extends Component {
     number: 2,
     countdown: 40,
     imageIndex: 0,
-    numberOfFlies: 5,
+    numberOfFlies: 1,
     minSpeed: 5,
     maxSpeed: 10
   };
 
   level3 = {
     number: 3,
-    countdown: 20,
+    countdown: 5,
     imageIndex: 0,
-    numberOfFlies: 10,
+    numberOfFlies: 1,
     minSpeed: 10,
     maxSpeed: 15
   };
@@ -61,6 +62,9 @@ class App extends Component {
 
   //START LEVEL FUNCTION
   startLevel = () => {
+    //hide modal
+    document.querySelector("#start-screen").classList.add("hidden");
+    document.querySelector("#youLost-screen").classList.add("hidden");
     //CLEAR ANY INTERVAL THAT WAS STARTED BEFORE
     clearInterval(this.myInterval);
     if (this.state.level.countdown > 0) {
@@ -76,6 +80,7 @@ class App extends Component {
         if (this.state.level.countdown === 0) {
           clearInterval(this.myInterval);
           console.log(`You failed level ${this.state.level.number}`);
+          document.querySelector("#youLost-screen").classList.remove("hidden");
         }
         //IF THE CURRENT TIME % INITIAL TIME / 5 === 0 UPDATE IMAGE
         if (
@@ -101,6 +106,8 @@ class App extends Component {
     });
     this.startLevel();
     this.setRenderNewLevel(true);
+    document.querySelector("#signup-screen").classList.add("hidden");
+    document.querySelector("#youWon-screen").classList.add("hidden");
   };
 
   //NEW GAME FUNCTION
@@ -151,6 +158,11 @@ class App extends Component {
     //CHECKS IF NUMBER OF FLIES FROM THE LEVEL EQUALS THE NUMBER OF SMACKED FLIES FROM ARRAY TO SEE IF USER HAS SMACKED ALL OF THEM
     if (this.state.level.numberOfFlies === this.state.smackedFlies.size) {
       console.log(`You won level ${this.state.level.number}!!`);
+      if (this.state.level.number === 1) {
+        document.querySelector("#signup-screen").classList.remove("hidden");
+      } else {
+        document.querySelector("#youWon-screen").classList.remove("hidden");
+      }
       //STOPS TIME
       clearInterval(this.myInterval);
     }
@@ -170,15 +182,44 @@ class App extends Component {
           score={this.state.score}
           increaseScore={this.increaseScore}
         />
-        <button onClick={this.startLevel}>Start Game</button>
-        <button onClick={this.newGame}>New Game</button>
-        <button onClick={this.tryAgain}>Try Again</button>
+        <StartButton startClicked={this.startLevel} />
+
         {this.state.level.number === this.levels.length ? null : (
-          <button onClick={this.nextLevel}>Next Level</button>
+          <>
+            <NextLevelButton nextLevelClicked={this.nextLevel} />
+            <YouWonButton youWonClicked={this.nextLevel} />
+          </>
         )}
+        <YouLostButton youLostClicked={this.tryAgain} />
       </div>
     );
   }
 }
+//Overlay buttons trigger React functions
+function StartButton(props) {
+  return ReactDOM.createPortal(
+    <button onClick={props.startClicked}>Start Game</button>,
+    document.querySelector("#start-screen .startBtn")
+  );
+}
+function NextLevelButton(props) {
+  return ReactDOM.createPortal(
+    <button onClick={props.nextLevelClicked}>Next Level</button>,
+    document.querySelector("#signup-screen .react-button-holder")
+  );
+}
 
+function YouWonButton(props) {
+  return ReactDOM.createPortal(
+    <button onClick={props.youWonClicked}>Play next level</button>,
+    document.querySelector("#youWon-screen .youWonBtn")
+  );
+}
+
+function YouLostButton(props) {
+  return ReactDOM.createPortal(
+    <button onClick={props.youLostClicked}>Replay</button>,
+    document.querySelector("#youLost-screen .youLostBtn")
+  );
+}
 export default App;
