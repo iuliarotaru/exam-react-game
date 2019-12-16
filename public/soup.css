@@ -82,3 +82,34 @@ a {
 a:hover {
   color: var(--lightgreen);
 }
+
+/* --- CUSTOM ELEMENTS THROUGHOUT THE PAGE ---  */
+
+.paragraphWrapper {
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.simpleText {
+  /* smaller text with larger margings written in Roboto to help readability in large chunks */
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+#contactEmail::before {
+  background: url("img/email.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+}
+
+#contactAddress {
+
+}
+
+#contactPhone {
+
+}

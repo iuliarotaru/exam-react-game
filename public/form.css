@@ -75,15 +75,6 @@ button[type="submit"] {
 }
 
 /* --- SPECIFIC CHANGES TO USER PROFILE FORM --- */
-#avatarImg {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    display: block;
-    margin: auto;
-    background-image: url("img/profile.jpg");
-    background-size: cover;
-  }
   
   legend {
     color: var(--yellow);
