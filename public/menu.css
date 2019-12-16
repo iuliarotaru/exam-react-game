@@ -48,7 +48,7 @@ nav > a:hover,
   transition: 0.2s ease-in-out;
 }
 
-#mobileMenuIcon {
+#mobileMenu {
   display: none;
 }
 
@@ -66,11 +66,13 @@ nav > a:hover,
 
 @media all and (max-width: 450px) {
   #mobileMenu {
+    display: block;
     width: 45px;
     height: 45px;
     margin: 0 auto;
     background: url("http://petragergely.dk/kea/imgs/menu.png");
     background-size: cover;
+    cursor: pointer;
   }
 
   nav {

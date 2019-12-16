@@ -1,21 +1,22 @@
 /* --- GENERAL OVERLAY --- */
 #overlays {
   position: absolute;
-
+  width: 100%;
   left: 0;
   z-index: 100;
 }
+
 .overlayWrapper {
   width: 100%;
   min-height: 100vh;
-  background: #00000080;
-  padding: 50px 0;
+  background: #000000c7;
   display: flex;
   align-items: center;
+  padding: 20px 0;
 }
 
 .overlayFormWrapper {
-  width: 780px;
+  width: 100%;
   margin: 0 auto;
 }
 
