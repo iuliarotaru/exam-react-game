@@ -99,17 +99,20 @@ a:hover {
   margin: 20px 0;
 }
 
-#contactEmail::before {
-  background: url("img/email.png");
-  background-size: cover;
+#contactEmail::before, #contactAddress::before, #contactPhone::before {
   width: 20px;
   height: 20px;
+  margin: 5px;
 }
 
-#contactAddress {
-
+#contactEmail::before {
+  content: url(img/email.png);
 }
 
-#contactPhone {
+#contactAddress::before {
+  content: url(img/marker.png);
+}
 
+#contactPhone::before {
+  content: url(img/mobile.png);
 }
