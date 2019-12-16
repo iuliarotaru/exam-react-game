@@ -1,12 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
 .navbar {
-  background-color: #373948;
+  background-color: var(--midgrey);
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   grid-template-rows: 1;
@@ -17,7 +10,7 @@
 }
 
 #slogan > p {
-  color: white;
+  color: var(--white);
   opacity: 0.5;
   font-family: "Gloria Hallelujah", sans-serif;
   font-size: 1.3em;
@@ -32,7 +25,7 @@ nav {
 
 nav > a {
   font-family: "Gloria Hallelujah", sans-serif;
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-size: 1.3em;
   transition: 0.2s ease-in-out;
@@ -40,11 +33,11 @@ nav > a {
 
 nav > a:hover,
 #login:hover {
-  color: #45b899;
+  color: var(--green);
 }
 
 #login {
-  color: #fca91f;
+  color: var(--yellow);
   transition: 0.2s ease-in-out;
 }
 

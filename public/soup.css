@@ -1,6 +1,21 @@
-/* random stuff that we need to sort out into their respective css files later */
+/* general things */
 @import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+  --darkgrey: #27283a;
+  --midgrey: #373948;
+  --lightgrey: #9d9d9d;
+  --green: #45b899;
+  --lightgreen: #69dcbd;
+  --red: #ef4d4e;
+  --yellow: #fca91f;
+  --white: #fff;
+  --lightblue: #4dc8ff;
+  --borderColor: #707070;
+  --black: #222222;
+
+}
 
 * {
   box-sizing: border-box;
@@ -8,7 +23,7 @@
 }
 
 body {
-  background-color: #272939;
+  background-color: var(--darkgrey);
 }
 
 .centered {
@@ -16,16 +31,16 @@ body {
 }
 
 .yellow {
-  color: #fca91f;
+  color: var(--yellow);
   margin: 50px 0;
 }
 
 p,
 span, 
 h1,
- h2, 
- button {
-color: white;
+h2, 
+button {
+color: var(--white);
 font-family: "Gloria Hallelujah", sans-serif; 
 }
 
@@ -37,7 +52,7 @@ a {
 
 button {
   height: 100px;
-  background: #45b899;
+  background: var(--green);
   -webkit-appearance: unset;
   border: none;
   outline: none;
@@ -52,12 +67,12 @@ button {
 
 button:hover {
   cursor: pointer;
-  background: #69dcbd;
+  background: var(--lightgreen);
 }
 
 a {
   font-size: 1.8em;
-  color: #5bcbad;
+  color: var(--green);
   font-family: "Gloria Hallelujah", sans-serif;
   text-decoration: none;
   display: flex;
@@ -65,5 +80,5 @@ a {
 }
 
 a:hover {
-  color: #69dcbd;
+  color: var(--lightgreen);
 }
