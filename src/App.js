@@ -18,16 +18,16 @@ class App extends Component {
     number: 1,
     countdown: 60,
     imageIndex: 0,
-    numberOfFlies: 1,
-    minSpeed: 1,
-    maxSpeed: 6
+    numberOfFlies: 4,
+    minSpeed: 5,
+    maxSpeed: 10
   };
 
   level2 = {
     number: 2,
-    countdown: 40,
+    countdown: 5,
     imageIndex: 0,
-    numberOfFlies: 1,
+    numberOfFlies: 6,
     minSpeed: 5,
     maxSpeed: 10
   };
@@ -36,7 +36,7 @@ class App extends Component {
     number: 3,
     countdown: 5,
     imageIndex: 0,
-    numberOfFlies: 1,
+    numberOfFlies: 10,
     minSpeed: 10,
     maxSpeed: 15
   };
@@ -62,13 +62,14 @@ class App extends Component {
 
   //START LEVEL FUNCTION
   startLevel = () => {
-    //hide modal
     document.querySelector("#start-screen").classList.add("hidden");
     document.querySelector("#youLost-screen").classList.add("hidden");
     //CLEAR ANY INTERVAL THAT WAS STARTED BEFORE
     clearInterval(this.myInterval);
     if (this.state.level.countdown > 0) {
+      console.log(this.state.level.countdown);
       this.myInterval = setInterval(() => {
+        console.log("working");
         //UPDATE CURRENT TIME EVERY SECOND
         this.setState({
           level: {
@@ -108,16 +109,6 @@ class App extends Component {
     this.setRenderNewLevel(true);
     document.querySelector("#signup-screen").classList.add("hidden");
     document.querySelector("#youWon-screen").classList.add("hidden");
-  };
-
-  //NEW GAME FUNCTION
-  newGame = () => {
-    this.setState({
-      level: this.levels[0],
-      score: 0,
-      smackedFlies: new Set()
-    });
-    this.startLevel();
   };
 
   //TRY AGAIN FUNCTION
@@ -182,6 +173,7 @@ class App extends Component {
           score={this.state.score}
           increaseScore={this.increaseScore}
         />
+        <YouLostButton youLostClicked={this.tryAgain} />
         <StartButton startClicked={this.startLevel} />
 
         {this.state.level.number === this.levels.length ? null : (
@@ -190,7 +182,6 @@ class App extends Component {
             <YouWonButton youWonClicked={this.nextLevel} />
           </>
         )}
-        <YouLostButton youLostClicked={this.tryAgain} />
       </div>
     );
   }
