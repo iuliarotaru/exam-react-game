@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/soup.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/start-screen.css" />
     <title>Flies Smacker</title>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -38,7 +39,7 @@
       </div>
       <div id="overlays">
         <!--start screen start-->
-        <div class="overlayWrapper" id="start-screen">
+        <div class="overlayWrapper " id="start-screen">
           <!--<div class="startImg"><img src="img/background.png" /></div> -->
           <div class="startWrapper">
             <!-- <div class="headerText"> -->
@@ -133,10 +134,28 @@
           </div>
         </div>
         <!--you lost screen end-->
+
+        <!--log in screen start-->
+        <div class="overlayWrapper hidden" id="login-screen">
+          <div class="overlayContent">
+            <h1 class="centered">Welcome back</h1>
+            <form id="logInForm">
+              <label for="name">Your username:</label><br />
+              <input type="text" name="name" required  id="name"/><br />
+              <label for="password">Your password:</label><br />
+              <input type="password" name="password" required id="password"/><br />
+              <button class="signUpBtn" id="loginButton">
+                Log in!
+              </button>
+            </form>
+          </div>
+        </div>
+        <!--log in screen end-->
       </div>
     </div>
 
     <div id="root"></div>
+    <script src="login.js"></script>
 
     <script src="signupform.js"></script>
     <script src="menu.js"></script>
