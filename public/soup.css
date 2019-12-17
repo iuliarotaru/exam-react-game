@@ -38,7 +38,7 @@ body {
 p,
 span, 
 h1,
-h2, 
+h2, h3,
 button {
 color: var(--white);
 font-family: "Gloria Hallelujah", sans-serif; 
@@ -81,6 +81,15 @@ a {
 
 a:hover {
   color: var(--lightgreen);
+}
+
+button > a {
+  font-size: 1em;
+  color: white;
+}
+
+button > a:hover {
+  color: white;
 }
 
 /* --- CUSTOM ELEMENTS THROUGHOUT THE PAGE ---  */
