@@ -1,19 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
 .navbar {
   background-color: #373948;
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   grid-template-rows: 1;
   grid-gap: 3em;
-  align-items: center;
-  justify-content: space-between;
   padding: 1em;
+  align-items: center;
+  text-align: left;
+}
+
+#logo {
+  margin: 0 auto 0 0;
 }
 
 #slogan > p {
@@ -26,7 +25,8 @@
 
 nav {
   display: flex;
-  justify-content: space-between;
+
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -36,6 +36,7 @@ nav > a {
   text-decoration: none;
   font-size: 1.3em;
   transition: 0.2s ease-in-out;
+  margin: 0 50px;
 }
 
 nav > a:hover,
@@ -48,7 +49,7 @@ nav > a:hover,
   transition: 0.2s ease-in-out;
 }
 
-#mobileMenuIcon {
+#mobileMenu {
   display: none;
 }
 
@@ -66,11 +67,13 @@ nav > a:hover,
 
 @media all and (max-width: 450px) {
   #mobileMenu {
+    display: block;
     width: 45px;
     height: 45px;
     margin: 0 auto;
     background: url("http://petragergely.dk/kea/imgs/menu.png");
     background-size: cover;
+    cursor: pointer;
   }
 
   nav {
@@ -83,3 +86,4 @@ nav > a:hover,
     flex-direction: column;
   }
 }
+

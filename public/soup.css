@@ -1,5 +1,21 @@
-/* random stuff that we need to sort out into their respective css files later */
+/* general things */
 @import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+  --darkgrey: #27283a;
+  --midgrey: #373948;
+  --lightgrey: #9d9d9d;
+  --green: #45b899;
+  --lightgreen: #69dcbd;
+  --red: #ef4d4e;
+  --yellow: #fca91f;
+  --white: #fff;
+  --lightblue: #4dc8ff;
+  --borderColor: #707070;
+  --black: #222222;
+
+}
 
 * {
   box-sizing: border-box;
@@ -7,20 +23,25 @@
 }
 
 body {
-  background-color: #272939;
+  background-color: var(--darkgrey);
 }
 
 .centered {
   text-align: center;
 }
 
+.yellow {
+  color: var(--yellow);
+  margin: 50px 0;
+}
+
 p,
-span,
+span, 
 h1,
-h2,
+h2, 
 button {
-  color: white;
-  font-family: "Gloria Hallelujah", sans-serif;
+color: var(--white);
+font-family: "Gloria Hallelujah", sans-serif; 
 }
 
 p,
@@ -30,8 +51,8 @@ a {
 }
 
 button {
-  height: 86px;
-  background: #45b899;
+  height: 100px;
+  background: var(--green);
   -webkit-appearance: unset;
   border: none;
   outline: none;
@@ -46,12 +67,12 @@ button {
 
 button:hover {
   cursor: pointer;
-  background: #69dcbd;
+  background: var(--lightgreen);
 }
 
 a {
   font-size: 1.8em;
-  color: #5bcbad;
+  color: var(--green);
   font-family: "Gloria Hallelujah", sans-serif;
   text-decoration: none;
   display: flex;
@@ -59,5 +80,39 @@ a {
 }
 
 a:hover {
-  color: #69dcbd;
+  color: var(--lightgreen);
+}
+
+/* --- CUSTOM ELEMENTS THROUGHOUT THE PAGE ---  */
+
+.paragraphWrapper {
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.simpleText {
+  /* smaller text with larger margings written in Roboto to help readability in large chunks */
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+#contactEmail::before, #contactAddress::before, #contactPhone::before {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+
+#contactEmail::before {
+  content: url(img/email.png);
+}
+
+#contactAddress::before {
+  content: url(img/marker.png);
+}
+
+#contactPhone::before {
+  content: url(img/mobile.png);
 }
