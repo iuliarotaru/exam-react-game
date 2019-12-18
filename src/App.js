@@ -49,6 +49,7 @@ class App extends Component {
   state = {
     level: this.levels[0],
     score: 0,
+    lastScore: 0,
     smackedFlies: new Set(),
     renderNewLevel: true,
     levelWon: false
@@ -78,11 +79,21 @@ class App extends Component {
           }
         });
         //IF THE CURRENT TIME IS 0 THAN IT FAILED
-        if (this.state.level.countdown === 0) {
+        if (this.state.level.numberOfFlies === this.state.smackedFlies.size) {
+          console.log(`You won level ${this.state.level.number}!!`);
+          if (this.state.level.number === 1) {
+            document.querySelector("#signup-screen").classList.remove("hidden");
+          } else {
+            document.querySelector("#youWon-screen").classList.remove("hidden");
+          }
+          //STOPS TIME
+          clearInterval(this.myInterval);
+        } else if (this.state.level.countdown === 0) {
           clearInterval(this.myInterval);
           console.log(`You failed level ${this.state.level.number}`);
           document.querySelector("#youLost-screen").classList.remove("hidden");
         }
+
         //IF THE CURRENT TIME % INITIAL TIME / 5 === 0 UPDATE IMAGE
         if (
           this.state.level.countdown %
@@ -101,14 +112,19 @@ class App extends Component {
 
   //NEXT LEVEL FUNCTION
   nextLevel = () => {
-    this.setState({
-      level: this.levels[this.state.level.number],
-      smackedFlies: new Set()
-    });
-    this.startLevel();
-    this.setRenderNewLevel(true);
-    document.querySelector("#signup-screen").classList.add("hidden");
-    document.querySelector("#youWon-screen").classList.add("hidden");
+    this.setState(
+      {
+        level: this.levels[this.state.level.number],
+        smackedFlies: new Set(),
+        lastScore: this.state.score
+      },
+      () => {
+        this.startLevel();
+        this.setRenderNewLevel(true);
+        document.querySelector("#signup-screen").classList.add("hidden");
+        document.querySelector("#youWon-screen").classList.add("hidden");
+      }
+    );
   };
 
   //TRY AGAIN FUNCTION
@@ -116,7 +132,7 @@ class App extends Component {
     this.setState(
       {
         level: this.levels[this.state.level.number - 1],
-        score: 0,
+        score: this.state.lastScore,
         smackedFlies: new Set()
       },
       () => {
@@ -148,20 +164,6 @@ class App extends Component {
   componentWillUnmount() {
     //Clear the interval
     clearInterval(this.myInterval);
-  }
-
-  componentDidUpdate() {
-    //CHECKS IF NUMBER OF FLIES FROM THE LEVEL EQUALS THE NUMBER OF SMACKED FLIES FROM ARRAY TO SEE IF USER HAS SMACKED ALL OF THEM
-    if (this.state.level.numberOfFlies === this.state.smackedFlies.size) {
-      console.log(`You won level ${this.state.level.number}!!`);
-      if (this.state.level.number === 1) {
-        document.querySelector("#signup-screen").classList.remove("hidden");
-      } else {
-        document.querySelector("#youWon-screen").classList.remove("hidden");
-      }
-      //STOPS TIME
-      clearInterval(this.myInterval);
-    }
   }
 
   render() {
