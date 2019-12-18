@@ -14,17 +14,18 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/overlay.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/start-screen.css" />
     <title>Flies Smacker</title>
-
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="sitewrapper">
-      <div class="navbar">
-        <a href="index.html"><img
-          src="http://petragergely.dk/kea/imgs/game_logo.png"
-          alt="logo"
-          height="80"
-          id="logo"
+      <!--Navbar before sign up starts-->
+      <div class="navbar" id="navbar-before-signup">
+        <a href="index.html"
+          ><img
+            src="http://petragergely.dk/kea/imgs/game_logo.png"
+            alt="logo"
+            height="80"
+            id="logo"
         /></a>
         <div id="slogan">
           <p>More than 300 games for 9-year olds</p>
@@ -36,6 +37,24 @@
         </nav>
         <div id="mobileMenu"></div>
       </div>
+      <!--Navbar before sign up end-->
+
+      <!--Navbar after sign up start-->
+      <div class="navbar hidden" id="navbar-after-signup">
+          <a href="index.html"><img src="http://petragergely.dk/kea/imgs/game_logo.png" alt="logo" height="80"></a>
+          <div id="slogan">
+            <p>More than 300 games for 9-year olds</p>
+          </div>
+            <nav>
+            <a href="about.html">About us</a>
+            <a href="#">Games</a>
+            <a href="store.html">Shop</a>
+            <a href="user.html" id="user"><img src="img/profile.png" alt="user profile" width="45" height="45"></a>
+            <a href="cart.html" id="user"><img src="img/cart.png" alt="shop" width="45" height="45"></a>
+              <div id="mobileMenu">
+          </div>
+          </div>
+      <!--Navbar after sign up end-->
       <div id="overlays">
         <!--start screen start-->
         <div class="overlayWrapper " id="start-screen">
@@ -62,27 +81,51 @@
                 <span id="timerPoints">x</span> timer points! That's AMAZING!
               </p>
               <p class="centered">Sign up, so we can save your progress:</p>
-              <form id ="signUp">
-                <label  for="name">Your username:</label>
-                <input type="text" name="name" placeholder="bla" pattern="[a-zA-Z0-9]+" required>
-                <p class="errorMsgWithJS" id="usernameNotUnique">This name is already taken</p>
-                <p class="errorMsg" id="usernameInvalid">Only letters of the English alphabet and numbers are allowed.</p>
+              <form id="signUp">
+                <label for="name">Your username:</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="bla"
+                  pattern="[a-zA-Z0-9]+"
+                  required
+                />
+                <p class="errorMsgWithJS" id="usernameNotUnique">
+                  This name is already taken
+                </p>
+                <p class="errorMsg" id="usernameInvalid">
+                  Only letters of the English alphabet and numbers are allowed.
+                </p>
                 <label for="email">Your e-mail address:</label>
-                <input type="email" name="email" placeholder="bla"  required>
+                <input type="email" name="email" placeholder="bla" required />
                 <p class="errorMsg">This not a valid e-mail address.</p>
                 <label for="password">Your password:</label>
-                <input type="password" name="password"  placeholder="bla" required>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="bla"
+                  required
+                />
                 <div class="checkboxWrapper">
-                <input type="checkbox" name="newsletter"> <label for="newsletter">Can we send you newsletter?</label><br>
+                  <input type="checkbox" name="newsletter" />
+                  <label for="newsletter">Can we send you newsletter?</label
+                  ><br />
                 </div>
-                <button type="submit" class="signUpBtn">Sign up and continue playing</button>
+                <button type="submit" class="signUpBtn">
+                  Sign up and continue playing
+                </button>
               </form>
 
               <a href="#" class="centered"
                 >Do you already have an account? Sign in here.</a
               >
             </div>
-            <div class="react-button-holder hidden"></div>
+            
+              <p class="centered hidden text-after-signup">
+                You have successfully signed up. You can now continue playing
+              </p>
+              <div class="react-button-holder hidden"></div>
+            
           </div>
         </div>
         <!--Signup screen end-->
@@ -139,9 +182,14 @@
             <h1 class="centered">Welcome back</h1>
             <form id="logInForm">
               <label for="name">Your username:</label><br />
-              <input type="text" name="name" required  id="name"/><br />
+              <input type="text" name="name" required id="name" /><br />
               <label for="password">Your password:</label><br />
-              <input type="password" name="password" required id="password"/><br />
+              <input
+                type="password"
+                name="password"
+                required
+                id="password"
+              /><br />
               <button class="signUpBtn" id="loginButton">
                 Log in!
               </button>

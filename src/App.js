@@ -27,7 +27,7 @@ class App extends Component {
     number: 2,
     countdown: 5,
     imageIndex: 0,
-    numberOfFlies: 6,
+    numberOfFlies: 2,
     minSpeed: 5,
     maxSpeed: 10
   };
@@ -36,7 +36,7 @@ class App extends Component {
     number: 3,
     countdown: 5,
     imageIndex: 0,
-    numberOfFlies: 10,
+    numberOfFlies: 2,
     minSpeed: 10,
     maxSpeed: 15
   };
@@ -113,12 +113,17 @@ class App extends Component {
 
   //TRY AGAIN FUNCTION
   tryAgain = () => {
-    this.setState({
-      level: this.levels[this.state.level.number - 1],
-      score: 0,
-      smackedFlies: new Set()
-    });
-    this.startLevel();
+    this.setState(
+      {
+        level: this.levels[this.state.level.number - 1],
+        score: 0,
+        smackedFlies: new Set()
+      },
+      () => {
+        this.startLevel();
+        this.setRenderNewLevel(true);
+      }
+    );
   };
 
   //INCREASE SCORE FUNCTION
@@ -209,7 +214,9 @@ function YouWonButton(props) {
 
 function YouLostButton(props) {
   return ReactDOM.createPortal(
-    <button className="mutedBtn" onClick={props.youLostClicked}>Replay</button>,
+    <button className="mutedBtn" onClick={props.youLostClicked}>
+      Replay
+    </button>,
     document.querySelector("#youLost-screen .youLostBtn")
   );
 }
