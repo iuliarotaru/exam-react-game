@@ -1,0 +1,11 @@
+.avatarImg {
+    background-image: url('img/avatar.png');
+    background-size: cover;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: auto;
+    
+}
+

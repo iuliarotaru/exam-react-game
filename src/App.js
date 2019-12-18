@@ -209,7 +209,7 @@ function YouWonButton(props) {
 
 function YouLostButton(props) {
   return ReactDOM.createPortal(
-    <button onClick={props.youLostClicked}>Replay</button>,
+    <button className="mutedBtn" onClick={props.youLostClicked}>Replay</button>,
     document.querySelector("#youLost-screen .youLostBtn")
   );
 }

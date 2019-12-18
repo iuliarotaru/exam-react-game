@@ -8,37 +8,37 @@
     <meta name="description" content="Flies Smacker" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/soup.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/form.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/menu.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/overlay.css" />
-    <link rel="stylesheet" href="%PUBLIC_URL%/soup.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/start-screen.css" />
     <title>Flies Smacker</title>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="sitewrapper">
       <div class="navbar">
-        <img
-          src="http://petragergely.dk/kea/imgs/flylogo.png"
+        <a href="index.html"><img
+          src="http://petragergely.dk/kea/imgs/game_logo.png"
           alt="logo"
           height="80"
           id="logo"
-        />
+        /></a>
         <div id="slogan">
           <p>More than 300 games for 9-year olds</p>
         </div>
         <nav>
-          <a href="#">About us</a>
-          <a href="#">Games</a>
-          <a href="#">Shop</a>
-          <a href="#" id="login">Log in</a>
+          <a href="about.html">About us</a>
+          <a href="games.html">Games</a>
+          <a href="login.html" id="login">Log in</a>
         </nav>
         <div id="mobileMenu"></div>
       </div>
       <div id="overlays">
         <!--start screen start-->
-        <div class="overlayWrapper" id="start-screen">
+        <div class="overlayWrapper " id="start-screen">
           <!--<div class="startImg"><img src="img/background.png" /></div> -->
           <div class="startWrapper">
             <!-- <div class="headerText"> -->
@@ -62,21 +62,20 @@
                 <span id="timerPoints">x</span> timer points! That's AMAZING!
               </p>
               <p class="centered">Sign up, so we can save your progress:</p>
-              <form id="signUp">
-                <label for="name">Your username:</label><br />
-                <input type="text" name="name" required /><br />
-                <label for="email">Your e-mail address:</label><br />
-                <input type="text" name="email" required /><br />
-                <label for="password">Your password:</label><br />
-                <input type="password" name="password" required /><br />
+              <form id ="signUp">
+                <label  for="name">Your username:</label>
+                <input type="text" name="name" placeholder="bla" pattern="[a-zA-Z0-9]+" required>
+                <p class="errorMsgWithJS" id="usernameNotUnique">This name is already taken</p>
+                <p class="errorMsg" id="usernameInvalid">Only letters of the English alphabet and numbers are allowed.</p>
+                <label for="email">Your e-mail address:</label>
+                <input type="email" name="email" placeholder="bla"  required>
+                <p class="errorMsg">This not a valid e-mail address.</p>
+                <label for="password">Your password:</label>
+                <input type="password" name="password"  placeholder="bla" required>
                 <div class="checkboxWrapper">
-                  <input type="checkbox" name="newsletter" />
-                  <label for="newsletter">Can we send you newsletter?</label
-                  ><br />
+                <input type="checkbox" name="newsletter"> <label for="newsletter">Can we send you newsletter?</label><br>
                 </div>
-                <button type="submit" class="signUpBtn">
-                  Sign up and continue playing
-                </button>
+                <button type="submit" class="signUpBtn">Sign up and continue playing</button>
               </form>
 
               <a href="#" class="centered"
@@ -133,10 +132,28 @@
           </div>
         </div>
         <!--you lost screen end-->
+
+        <!--log in screen start-->
+        <div class="overlayWrapper hidden" id="login-screen">
+          <div class="overlayContent">
+            <h1 class="centered">Welcome back</h1>
+            <form id="logInForm">
+              <label for="name">Your username:</label><br />
+              <input type="text" name="name" required  id="name"/><br />
+              <label for="password">Your password:</label><br />
+              <input type="password" name="password" required id="password"/><br />
+              <button class="signUpBtn" id="loginButton">
+                Log in!
+              </button>
+            </form>
+          </div>
+        </div>
+        <!--log in screen end-->
       </div>
     </div>
 
     <div id="root"></div>
+    <script src="login.js"></script>
 
     <script src="signupform.js"></script>
     <script src="menu.js"></script>
