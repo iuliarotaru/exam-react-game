@@ -39,6 +39,7 @@ function doAttemptLogin() {
         console.log("Logged in as " + data[0].name);
         delete data[0].password;
         localStorage.setItem("LOGGED_USER", JSON.stringify(data[0]));
+        hideLogin();
       } else {
         console.error("Username or password incorrect");
       }
@@ -57,3 +58,15 @@ function showLogin() {
   loginOverlay.classList.remove("hidden");
   console.log("show login");
 }
+
+function hideLogin() {
+    const overlay = document.getElementById('login-screen');
+    const newMenu = document.getElementById("navbar-after-signup");
+    const oldMenu = document.getElementById('navbar-before-signup');
+
+    overlay.classList.add('hidden');
+    newMenu.classList.remove('hidden');
+    oldMenu.classList.add('hidden');
+
+};
+
