@@ -168,7 +168,6 @@ class App extends Component {
         <h3 className="inline">
           Time left: {this.state.level.countdown} seconds
         </h3>
-
         <Level
           setRenderNewLevel={this.setRenderNewLevel}
           renderNewLevel={this.state.renderNewLevel}
