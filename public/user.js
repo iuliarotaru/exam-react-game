@@ -30,9 +30,11 @@ function loadUser(){
         userName.textContent = users.name;
 
         //loads userinfo in the form
+        userInfo.elements.name.value=users.name,
         userInfo.elements.firstname.value=users.firstname;
         userInfo.elements.lastname.value=users.lastname;
         userInfo.elements.email.value=users.email;
+        userInfo.elements.password.value=users.password;
         //don't need this for non-dynamic
         //userInfo.elements.id.value=users._id;
         });
@@ -41,9 +43,11 @@ function loadUser(){
 //update existing user data in restdb via form
 function put() {
     let data = {
+        name: userInfo.elements.name.value,
         firstname: userInfo.elements.firstname.value,
         lastname: userInfo.elements.lastname.value,
-        email: userInfo.elements.email.value
+        email: userInfo.elements.email.value,
+        password: userInfo.elements.password.value
     };
 
     let postData = JSON.stringify(data);
@@ -61,7 +65,8 @@ function put() {
 .then(d => d.json())
 .then( updatedUser => {
     //const parentElement = document.querySelector("fieldset");
-    userInfo.elements.firstname.value = updatedUser.firstname;
+    console.log(updatedUser);
+    //userInfo.elements.firstname.value = updatedUser.firstname;
     //parentElement.querySelector(".taskNotes").textContent = updatedUser.notes;
 });
 }
