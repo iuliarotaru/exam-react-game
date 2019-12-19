@@ -50,8 +50,7 @@ class App extends Component {
     score: 0,
     lastScore: 0,
     smackedFlies: new Set(),
-    renderNewLevel: true,
-    levelWon: false
+    renderNewLevel: true
   };
 
   setRenderNewLevel = status => {
@@ -75,7 +74,6 @@ class App extends Component {
             countdown: this.state.level.countdown - 1
           }
         });
-        //IF THE CURRENT TIME IS 0 THEN IT FAILED
         if (this.state.level.numberOfFlies === this.state.smackedFlies.size) {
           if (this.state.level.number === 1) {
             document.querySelector("#signup-screen").classList.remove("hidden");
@@ -84,6 +82,7 @@ class App extends Component {
           }
           //STOPS TIME
           clearInterval(this.myInterval);
+          //IF THE CURRENT TIME IS 0 THEN IT FAILED
         } else if (this.state.level.countdown === 0) {
           clearInterval(this.myInterval);
           document.querySelector("#youLost-screen").classList.remove("hidden");
