@@ -2,17 +2,21 @@
 //link https://smackfly-2fd1.restdb.io/rest/users-fly-smacker
 
 const userInfo = document.querySelector("#userInfo");
-const id = "5df91589306b1b1e000321f1";
+const id = "5df91589306b1b1e000321f1"; //change this to load your own info
 const userName = document.querySelector("#userName");
+const updateUserBtn = document.querySelector("#updateUser");
 
-editUser();
+updateUserBtn.addEventListener("click", e => {
+    e.preventDefault();
+    put();
+ })
 
+loadUser();
 
-
-
-function editUser(){
+//fetch existing user data from restdb
+function loadUser(){
     //fetches user data into the userform
-    fetch(`https://smackfly-2fd1.restdb.io/rest/users-fly-smacker/5df91589306b1b1e000321f1`, {
+    fetch(`https://smackfly-2fd1.restdb.io/rest/users-fly-smacker/${id}`, {
         method: "get",
         headers: {
           "Content-Type": "application/json; charset=utf-8",
@@ -22,28 +26,33 @@ function editUser(){
       })
         .then(e => e.json())
         .then(users => {
-            //loads username in header
+        //loads username in header
         userName.textContent = users.name;
+
+        //loads userinfo in the form
+        userInfo.elements.name.value=users.name,
         userInfo.elements.firstname.value=users.firstname;
         userInfo.elements.lastname.value=users.lastname;
         userInfo.elements.email.value=users.email;
+        userInfo.elements.password.value=users.password;
+        //don't need this for non-dynamic
         //userInfo.elements.id.value=users._id;
         });
 }
 
+//update existing user data in restdb via form
 function put() {
     let data = {
-        firstName: userInfo.elements.firstname.value,
-        lastName: userInfo.elements.lastname.value,
-        email: userInfo.elements.email.value
+        name: userInfo.elements.name.value,
+        firstname: userInfo.elements.firstname.value,
+        lastname: userInfo.elements.lastname.value,
+        email: userInfo.elements.email.value,
+        password: userInfo.elements.password.value
     };
 
     let postData = JSON.stringify(data);
 
-    const userId = userInfo.elements.id.value;
-
-    fetch("https://smackfly-2fd1.restdb.io/rest/users-fly-smacker/" + userId,
-    {
+    fetch(`https://smackfly-2fd1.restdb.io/rest/users-fly-smacker/${id}`, {
         method: "put",
         headers: {
             "Content-Type": "application/json; charset=utf-8",
@@ -55,11 +64,10 @@ function put() {
 )
 .then(d => d.json())
 .then( updatedUser => {
-    const parentElement = document.querySelector(`article[data-task-id="${updatedUser._id}"]`);
-    
-    parentElement.querySelector("h2").textContent = updatedUser.task;
-    parentElement.querySelector(".taskDate").textContent = updatedUser.when;
-    parentElement.querySelector(".taskNotes").textContent = updatedUser.notes;
+    //const parentElement = document.querySelector("fieldset");
+    console.log(updatedUser);
+    //userInfo.elements.firstname.value = updatedUser.firstname;
+    //parentElement.querySelector(".taskNotes").textContent = updatedUser.notes;
 });
 }
 

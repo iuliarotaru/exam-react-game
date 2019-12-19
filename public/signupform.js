@@ -11,7 +11,7 @@ const navbarAfterSignup = document.querySelector("#navbar-after-signup");
 
 signUpForm.addEventListener("submit", e => {
   e.preventDefault();
-  signUpBtn.textContent = "Waiting...";
+  //signUpBtn.textContent = "Waiting...";
   post();
   console.log("aici");
   navbarBeforeSignup.classList.add("hidden");
@@ -35,10 +35,13 @@ function post() {
     },
     body: postData
   })
-    .then(res => res.json())
-    .then(data => {
-      //showToast();
-      signUpForm.reset();
+    .then(res => {
+      if (res.status === 400) {
+        const usernameNotUnique = document.querySelector("#usernameNotUnique");
+        usernameNotUnique.style.display = "block";
+      } else {
+      //data => {
+      //signUpForm.reset();
 
       document
         .querySelector("#signup-screen .react-button-holder")
@@ -48,12 +51,13 @@ function post() {
         .querySelector("#signup-screen .text-after-signup")
         .classList.remove("hidden");
       removeAfterSignup.classList.add("hidden");
-    });
+    }
+  return res.json();
+})
+.then(data => {
+  //showToast
+  signUpForm.reset();
+});
 }
 
-//TODO
-//const usernameField =
-//const usernameNotUnique = document.querySelector("#usernameNotUnique")
-//if username is taken
-//usernameField.style.background = "#ef4d4e";
-//#usernameNotUnique.style.display = "block";
+

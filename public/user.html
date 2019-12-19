@@ -28,13 +28,14 @@
       </div>
       </div>
     </div>
-    <h1 class="centered yellow"><span class="yellow" id="userName">username</span></h1>
+    <h1 class="centered"><span class="yellow" id="userName"></h1>
     <div class="avatarImg"></div>
 <!--    <div class="userWrapper">
       <div class="userFields"> -->
         <form id="userInfo">
           <fieldset>
         <legend>Account information:</legend>
+        <input type="hidden" name="name" class="hidden">
           <label for="firstname">Your first name</label>
           <input type="text" name="firstname" />
           <label for="lastname">Your last name</label>
@@ -64,7 +65,7 @@
           <label for="address">Address</label>
           <input type="text" name="adress" />
         </fieldset>
-      <button>Update profile</button>
+      <button id="updateUser">Update profile</button>
       </form>
       <script src="user.js"></script>
 <script src="menu.js"></script>

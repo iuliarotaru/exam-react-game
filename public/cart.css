@@ -59,22 +59,28 @@
   margin: auto;
   max-width: 43rem;
 }
-.main-cart-container .cart-form-container .cartForm input {
+.cartForm > input {
+/*
   margin: 0 auto 2rem auto;
   background: #373948;
   color: white;
   width: 100%;
   max-width: 38rem;
   border-radius: 1rem;
-  border: none;
   text-align: start;
   padding: 1rem 2rem;
+  */
+  background-color: var(--midgrey);
+  border: none;
+  color: var(--lightgrey);
 }
-.main-cart-container .cart-form-container .cartForm label {
+
+/* .main-cart-container .cart-form-container .cartForm label {
   color: white;
   font-family: "Gloria Hallelujah", sans-serif;
   font-size: 1rem;
-}
+} */
+
 .main-cart-container .cart-form-container .cartForm button {
   border-radius: 1rem;
   border: none;
@@ -86,9 +92,9 @@
   margin: auto;
   max-width: 43rem;
 }
-.main-cart-container .cart-form-container .cartForm .checkbox {
+/* .main-cart-container .cart-form-container .cartForm .checkbox {
   width: 4rem;
-}
+} */
 .main-cart-container .cart-form-container .cartForm .blue {
   color: #45b899;
 }
