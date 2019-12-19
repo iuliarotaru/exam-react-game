@@ -40,22 +40,24 @@ function post() {
         const usernameNotUnique = document.querySelector("#usernameNotUnique");
         usernameNotUnique.style.display = "block";
       } else {
-        //data => {
-        //signUpForm.reset();
+      //data => {
+      //signUpForm.reset();
 
-        document
-          .querySelector("#signup-screen .react-button-holder")
-          .classList.remove("hidden");
+      document
+        .querySelector("#signup-screen .react-button-holder")
+        .classList.remove("hidden");
 
-        document
-          .querySelector("#signup-screen .text-after-signup")
-          .classList.remove("hidden");
-        removeAfterSignup.classList.add("hidden");
-      }
-      return res.json();
-    })
-    .then(data => {
-      //showToast
-      signUpForm.reset();
-    });
+      document
+        .querySelector("#signup-screen .text-after-signup")
+        .classList.remove("hidden");
+      removeAfterSignup.classList.add("hidden");
+    }
+  return res.json();
+})
+.then(data => {
+  //showToast
+  signUpForm.reset();
+});
 }
+
+

@@ -35,6 +35,15 @@ body {
   margin: 50px 0;
 }
 
+.small {
+  display: inline;
+  font-size: 1em;
+}
+
+.align-left {
+  text-align: left;
+}
+
 p,
 span, 
 h1,

@@ -21,7 +21,7 @@ input {
     text-align: center;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
     font-family: "Gloria Hallelujah", sans-serif;
     font-size: 1.5em;
     color: var(--black);
@@ -76,14 +76,14 @@ button[type="submit"] {
 
 /* --- SPECIFIC CHANGES TO USER PROFILE FORM --- */
   
-  legend {
+legend {
     color: var(--yellow);
     font-family: "Gloria Hallelujah", sans-serif;
     text-align: left;
     font-size: 1.3em;
   }
 
-    #userInfo > fieldset {
+#userInfo > fieldset {
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -91,7 +91,7 @@ button[type="submit"] {
     border: none;
   }
 
-  #userInfo > fieldset > input {
+#userInfo > fieldset > input {
     border: none;
     display: block;
     background-color: var(--midgrey);
@@ -101,7 +101,13 @@ button[type="submit"] {
   #userInfo > fieldset > input::placeholder {
       color: var(--midgrey);
 }
-  
+
+/* --- SPECIFIC CHANGES TO CART FORM --- */
+.cartForm > .checkboxWrapper > input[type="checkbox"]:not(:checked) {
+  background-color: var(--midgrey);
+  border: none;
+}
+
 /* --- ERROR MESSAGES --- */
 .errorMsg, .errorMsgWithJS {
     display: none;
