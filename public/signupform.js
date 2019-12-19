@@ -11,7 +11,7 @@ const navbarAfterSignup = document.querySelector("#navbar-after-signup");
 
 signUpForm.addEventListener("submit", e => {
   e.preventDefault();
-  signUpBtn.textContent = "Waiting...";
+  //signUpBtn.textContent = "Waiting...";
   post();
   console.log("aici");
   navbarBeforeSignup.classList.add("hidden");
@@ -35,25 +35,27 @@ function post() {
     },
     body: postData
   })
-    .then(res => res.json())
+    .then(res => {
+      if (res.status === 400) {
+        const usernameNotUnique = document.querySelector("#usernameNotUnique");
+        usernameNotUnique.style.display = "block";
+      } else {
+        //data => {
+        //signUpForm.reset();
+
+        document
+          .querySelector("#signup-screen .react-button-holder")
+          .classList.remove("hidden");
+
+        document
+          .querySelector("#signup-screen .text-after-signup")
+          .classList.remove("hidden");
+        removeAfterSignup.classList.add("hidden");
+      }
+      return res.json();
+    })
     .then(data => {
-      //showToast();
+      //showToast
       signUpForm.reset();
-
-      document
-        .querySelector("#signup-screen .react-button-holder")
-        .classList.remove("hidden");
-
-      document
-        .querySelector("#signup-screen .text-after-signup")
-        .classList.remove("hidden");
-      removeAfterSignup.classList.add("hidden");
     });
 }
-
-//TODO
-//const usernameField =
-//const usernameNotUnique = document.querySelector("#usernameNotUnique")
-//if username is taken
-//usernameField.style.background = "#ef4d4e";
-//#usernameNotUnique.style.display = "block";

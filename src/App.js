@@ -19,26 +19,26 @@ class App extends Component {
     countdown: 60,
     imageIndex: 0,
     numberOfFlies: 4,
-    minSpeed: 5,
+    minSpeed: 8,
     maxSpeed: 10
   };
 
   level2 = {
     number: 2,
-    countdown: 5,
+    countdown: 40,
     imageIndex: 0,
-    numberOfFlies: 2,
-    minSpeed: 5,
-    maxSpeed: 10
+    numberOfFlies: 6,
+    minSpeed: 4,
+    maxSpeed: 8
   };
 
   level3 = {
     number: 3,
-    countdown: 5,
+    countdown: 20,
     imageIndex: 0,
-    numberOfFlies: 2,
-    minSpeed: 10,
-    maxSpeed: 15
+    numberOfFlies: 10,
+    minSpeed: 1,
+    maxSpeed: 4
   };
 
   //LEVELS ARRAY
@@ -169,9 +169,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Level: {this.state.level.number}</h1>
-        <h3>Score: {this.state.score}</h3>
-        <h3>Time left: {this.state.level.countdown} seconds</h3>
+        <h1 className="inline">Level: {this.state.level.number}</h1>
+        <h3 className="inline">Score: {this.state.score}</h3>
+        <h3 className="inline">
+          Time left: {this.state.level.countdown} seconds
+        </h3>
+
         <Level
           setRenderNewLevel={this.setRenderNewLevel}
           renderNewLevel={this.state.renderNewLevel}

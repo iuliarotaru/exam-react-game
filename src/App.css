@@ -3,13 +3,17 @@
   cursor: url(images/cursor.png), auto;
   background-image: url("images/background.png");
   background-size: cover;
-  background-position: center;
+  /*background-position: center;*/
   overflow: hidden;
 
-  /*height: 87vh;*/
+  height: 95vh;
 }
 
 .fly {
   width: 95px;
   height: 80px;
+}
+.inline {
+  display: inline;
+  margin: 30px;
 }
