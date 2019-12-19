@@ -64,10 +64,14 @@ function put() {
 )
 .then(d => d.json())
 .then( updatedUser => {
-    //const parentElement = document.querySelector("fieldset");
-    console.log(updatedUser);
-    //userInfo.elements.firstname.value = updatedUser.firstname;
-    //parentElement.querySelector(".taskNotes").textContent = updatedUser.notes;
+    userInfo.elements.name.value=updatedUser.name,
+    userInfo.elements.firstname.value=updatedUser.firstname;
+    userInfo.elements.lastname.value=updatedUser.lastname;
+    userInfo.elements.email.value=updatedUser.email;
+    userInfo.elements.password.value=updatedUser.password;
+
+    updateUserBtn.textContent = "Success!";
+    updateUserBtn.style.backgroundColor = "#fca91f";
 });
 }
 
