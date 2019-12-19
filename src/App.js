@@ -44,8 +44,7 @@ class App extends Component {
   //LEVELS ARRAY
   levels = [this.level1, this.level2, this.level3];
 
-  //-----------------------------------
-  //STATES
+  //STATE
   state = {
     level: this.levels[0],
     score: 0,
@@ -68,9 +67,7 @@ class App extends Component {
     //CLEAR ANY INTERVAL THAT WAS STARTED BEFORE
     clearInterval(this.myInterval);
     if (this.state.level.countdown > 0) {
-      console.log(this.state.level.countdown);
       this.myInterval = setInterval(() => {
-        console.log("working");
         //UPDATE CURRENT TIME EVERY SECOND
         this.setState({
           level: {
@@ -78,9 +75,8 @@ class App extends Component {
             countdown: this.state.level.countdown - 1
           }
         });
-        //IF THE CURRENT TIME IS 0 THAN IT FAILED
+        //IF THE CURRENT TIME IS 0 THEN IT FAILED
         if (this.state.level.numberOfFlies === this.state.smackedFlies.size) {
-          console.log(`You won level ${this.state.level.number}!!`);
           if (this.state.level.number === 1) {
             document.querySelector("#signup-screen").classList.remove("hidden");
           } else {
@@ -90,10 +86,8 @@ class App extends Component {
           clearInterval(this.myInterval);
         } else if (this.state.level.countdown === 0) {
           clearInterval(this.myInterval);
-          console.log(`You failed level ${this.state.level.number}`);
           document.querySelector("#youLost-screen").classList.remove("hidden");
         }
-
         //IF THE CURRENT TIME % INITIAL TIME / 5 === 0 UPDATE IMAGE
         if (
           this.state.level.countdown %
@@ -185,7 +179,6 @@ class App extends Component {
         />
         <YouLostButton youLostClicked={this.tryAgain} />
         <StartButton startClicked={this.startLevel} />
-
         {this.state.level.number === this.levels.length ? null : (
           <>
             <NextLevelButton nextLevelClicked={this.nextLevel} />
@@ -196,7 +189,7 @@ class App extends Component {
     );
   }
 }
-//Overlay buttons trigger React functions
+//Create portals to inserts buttons into different locations in the DOM
 function StartButton(props) {
   return ReactDOM.createPortal(
     <button onClick={props.startClicked}>Start Game</button>,
@@ -209,14 +202,12 @@ function NextLevelButton(props) {
     document.querySelector("#signup-screen .react-button-holder")
   );
 }
-
 function YouWonButton(props) {
   return ReactDOM.createPortal(
     <button onClick={props.youWonClicked}>Play next level</button>,
     document.querySelector("#youWon-screen .youWonBtn")
   );
 }
-
 function YouLostButton(props) {
   return ReactDOM.createPortal(
     <button className="mutedBtn" onClick={props.youLostClicked}>

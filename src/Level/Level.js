@@ -5,13 +5,12 @@ const Level = props => {
   let DOMFlies = [];
   //FLYING PATHS
   let movementPath = [];
-  //REGISTER MotionPathPlugin
   GSAP.registerPlugin(MotionPathPlugin);
   //GET RANDOM INTEGER IN RANGE
   const getRandomIntInclusive = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   //GET RANDOM PATH FROM PATHS ARRAY
   const getRandomPath = () => {
@@ -56,9 +55,7 @@ const Level = props => {
       });
     });
   });
-
   //CREATE DOM FLIES
-  //TODO IF LEVEL NUMBER CHANGES DELETE EVERY FLY AND DO THIS
   let flies = [];
   flies.push(
     <img
@@ -82,7 +79,6 @@ const Level = props => {
       />
     );
   }
-
   return (
     <div>
       <div>{flies}</div>
