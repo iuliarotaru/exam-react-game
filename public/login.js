@@ -40,3 +40,15 @@ function doAttemptLogin() {
             })
     });
 }
+
+function showLogin() {
+    const overlays = document.querySelectorAll('.overlayWrapper');
+    const loginOverlay = document.getElementById('login-screen');
+
+    Array.from(overlays).forEach((overlay) => {
+        overlay.classList.add('hidden');
+    })
+
+    loginOverlay.classList.remove('hidden');
+    console.log('show login');
+}
