@@ -1,0 +1,106 @@
+/* --- GENERAL OVERLAY --- */
+#overlays {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 100;
+}
+
+.overlayWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: #000000c7;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.overlayFormWrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.overlayFormWrapper > h1 {
+  font-size: 5em;
+}
+
+.overlayFormWrapper > p {
+  font-size: 1.5em;
+}
+
+.overlayContent {
+  width: 780px;
+  background: var(--darkgrey);
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+.overlayContent > h1 {
+  background: linear-gradient(45deg, var(--midgrey), var(--darkgrey));
+  padding: 20px 0 20px 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.overlayContent > h2 {
+  margin: 30px 0;
+}
+
+.overlayBtn {
+  padding: 5px 5em;
+}
+
+/* --- LEADERBOARD --- */
+
+.leaderboardWrapper > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--lightgrey);
+}
+
+.leaderboardWrapper > div > p {
+  padding: 0 0 0 50px;
+}
+
+.leaderboardWrapper > div > span {
+  padding: 0 50px 0 0;
+}
+
+.you {
+  color: var(--lightblue);
+}
+
+.leaderboardWrapper > div:nth-child(even) {
+  background-color: var(--midgrey);
+}
+
+/* --- LOST with and without upsell --- */
+.overlayContent > img {
+  display: block;
+  margin: 50px auto;
+}
+
+.multipleBtnWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.multipleBtnWrapper > button {
+  padding: 5px 1em;
+  width: 80%;
+}
+
+.mutedBtn {
+  color: var(--white);
+  background: none;
+}
+
+.mutedBtn:hover {
+  background: none;
+}
+
+.hidden {
+  display: none;
+}

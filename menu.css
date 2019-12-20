@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
+
+.navbar {
+  background-color: #373948;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: 1;
+  grid-gap: 3em;
+  padding: 1em;
+  align-items: center;
+  text-align: left;
+}
+
+#logo {
+  margin: 0 auto 0 0;
+}
+
+#slogan > p {
+  color: white;
+  opacity: 0.5;
+  font-family: "Gloria Hallelujah", sans-serif;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav > a {
+  font-family: "Gloria Hallelujah", sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+  transition: 0.2s ease-in-out;
+  margin: 0 50px;
+}
+
+nav > a:hover,
+#login:hover {
+  color: #45b899;
+}
+
+#login {
+  color: #fca91f;
+  transition: 0.2s ease-in-out;
+}
+
+#mobileMenu {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .navbar {
+    grid-template-columns: 1fr;
+    grid-template-rows: 3;
+    grid-gap: 1em;
+  }
+
+  .navbar > img {
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-width: 450px) {
+  #mobileMenu {
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+    background: url("http://petragergely.dk/kea/imgs/menu.png");
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  nav {
+    display: none;
+  }
+}
+
+@media all and (max-width: 400px) {
+  nav {
+    flex-direction: column;
+  }
+}
+

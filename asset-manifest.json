@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/exam-react-game/static/css/main.b4942947.chunk.css",
+    "main.js": "/exam-react-game/static/js/main.e41978d8.chunk.js",
+    "main.js.map": "/exam-react-game/static/js/main.e41978d8.chunk.js.map",
+    "runtime-main.js": "/exam-react-game/static/js/runtime-main.14e4b5ad.js",
+    "runtime-main.js.map": "/exam-react-game/static/js/runtime-main.14e4b5ad.js.map",
+    "static/js/2.1d197f6a.chunk.js": "/exam-react-game/static/js/2.1d197f6a.chunk.js",
+    "static/js/2.1d197f6a.chunk.js.map": "/exam-react-game/static/js/2.1d197f6a.chunk.js.map",
+    "index.html": "/exam-react-game/index.html",
+    "precache-manifest.cb86727763134ed6055076636bd30e50.js": "/exam-react-game/precache-manifest.cb86727763134ed6055076636bd30e50.js",
+    "service-worker.js": "/exam-react-game/service-worker.js",
+    "static/css/main.b4942947.chunk.css.map": "/exam-react-game/static/css/main.b4942947.chunk.css.map",
+    "static/js/2.1d197f6a.chunk.js.LICENSE": "/exam-react-game/static/js/2.1d197f6a.chunk.js.LICENSE",
+    "static/media/background.png": "/exam-react-game/static/media/background.94af24c1.png",
+    "static/media/cake1.png": "/exam-react-game/static/media/cake1.17eae0bf.png",
+    "static/media/cake2.png": "/exam-react-game/static/media/cake2.009b403f.png",
+    "static/media/cake3.png": "/exam-react-game/static/media/cake3.83f44e2b.png",
+    "static/media/cake4.png": "/exam-react-game/static/media/cake4.cabe16b0.png",
+    "static/media/cake5.png": "/exam-react-game/static/media/cake5.65c7756e.png",
+    "static/media/cake6.png": "/exam-react-game/static/media/cake6.ea7a42f9.png",
+    "static/media/dead_fly.png": "/exam-react-game/static/media/dead_fly.65ba4e9f.png",
+    "static/media/fly.png": "/exam-react-game/static/media/fly.04c2898a.png",
+    "static/media/gold_dead_fly.png": "/exam-react-game/static/media/gold_dead_fly.102dedd3.png",
+    "static/media/gold_fly.png": "/exam-react-game/static/media/gold_fly.1d445861.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.14e4b5ad.js",
+    "static/js/2.1d197f6a.chunk.js",
+    "static/css/main.b4942947.chunk.css",
+    "static/js/main.e41978d8.chunk.js"
+  ]
+}

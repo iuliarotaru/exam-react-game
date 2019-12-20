@@ -1,0 +1,136 @@
+/* general things */
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+  --darkgrey: #27283a;
+  --midgrey: #373948;
+  --lightgrey: #9d9d9d;
+  --green: #45b899;
+  --lightgreen: #69dcbd;
+  --red: #ef4d4e;
+  --yellow: #fca91f;
+  --white: #fff;
+  --lightblue: #4dc8ff;
+  --borderColor: #707070;
+  --black: #222222;
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: var(--darkgrey);
+}
+
+.centered {
+  text-align: center;
+}
+
+.yellow {
+  color: var(--yellow);
+  margin: 50px 0;
+}
+
+.small {
+  display: inline;
+  font-size: 1em;
+}
+
+.align-left {
+  text-align: left;
+}
+
+p,
+span, 
+h1,
+h2, h3,
+button {
+color: var(--white);
+font-family: "Gloria Hallelujah", sans-serif; 
+}
+
+p,
+span,
+a {
+  font-size: 1.8em;
+}
+
+button {
+  height: 100px;
+  background: var(--green);
+  -webkit-appearance: unset;
+  border: none;
+  outline: none;
+  font-size: 1.8em;
+  border-radius: 15px;
+  display: block;
+  margin: 50px auto;
+  text-decoration: none;
+  padding: 5px 5em;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background: var(--lightgreen);
+}
+
+a {
+  font-size: 1.8em;
+  color: var(--green);
+  font-family: "Gloria Hallelujah", sans-serif;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+a:hover {
+  color: var(--lightgreen);
+}
+
+button > a {
+  font-size: 1em;
+  color: white;
+}
+
+button > a:hover {
+  color: white;
+}
+
+/* --- CUSTOM ELEMENTS THROUGHOUT THE PAGE ---  */
+
+.paragraphWrapper {
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.simpleText {
+  /* smaller text with larger margings written in Roboto to help readability in large chunks */
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+#contactEmail::before, #contactAddress::before, #contactPhone::before {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+
+#contactEmail::before {
+  content: url(img/email.png);
+}
+
+#contactAddress::before {
+  content: url(img/marker.png);
+}
+
+#contactPhone::before {
+  content: url(img/mobile.png);
+}

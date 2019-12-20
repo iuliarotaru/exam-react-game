@@ -1,0 +1,138 @@
+.checkboxWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+form {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    outline: none;
+    border: 1px solid var(--borderColor);
+    height: 85px;
+    width: 100%;
+    border-radius: 15px;
+    background: var(--white);
+    margin: 15px 5px;
+    text-align: center;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+    font-family: "Gloria Hallelujah", sans-serif;
+    font-size: 1.5em;
+    color: var(--black);
+    padding: 0 15px;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: unset;
+    width: 86px;
+    height: 86px;
+    border-radius: 15px;
+}
+
+input[type="checkbox"]:checked {
+    background-image: url("img/check.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: var(--green);
+    background-size: 70px;
+}
+
+label {
+    color: var(--lightgrey);
+    font-family: "Gloria Hallelujah", sans-serif;
+    font-size: 1.8em;
+    z-index: 5;
+    pointer-events: none;
+    text-align: center;
+  }
+
+label[for="newsletter"] {
+    margin: 0;
+    color: var(--white);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0;
+}
+
+/* --- SPECIFIC CHANGES TO SIGN UP FORM --- */
+#signUp {
+    display: flex;
+    flex-direction: column;
+    max-width: 780px;
+    margin: 50px auto;
+}
+
+#signUp > input::placeholder {
+    color: var(--white);
+}
+
+/* --- SPECIFIC CHANGES TO USER PROFILE FORM --- */
+  
+legend {
+    color: var(--yellow);
+    font-family: "Gloria Hallelujah", sans-serif;
+    text-align: left;
+    font-size: 1.3em;
+  }
+
+#userInfo > fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 50px auto;
+    border: none;
+  }
+
+#userInfo > fieldset > input {
+    border: none;
+    display: block;
+    background-color: var(--midgrey);
+    color: #9d9d9d;
+  }
+
+  #userInfo > fieldset > input::placeholder {
+      color: var(--midgrey);
+}
+
+/* --- SPECIFIC CHANGES TO CART FORM --- */
+.cartForm > .checkboxWrapper > input[type="checkbox"]:not(:checked) {
+  background-color: var(--midgrey);
+  border: none;
+}
+
+/* --- ERROR MESSAGES --- */
+.errorMsg, .errorMsgWithJS {
+    display: none;
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    color: var(--red);
+}
+
+input:invalid:not(:placeholder-shown):not(:focus) ~ .errorMsg {
+    display: block;
+  }
+  
+input:valid:not(:placeholder-shown):not(:focus) ~ .errorMsg {
+    display: none;
+  }
+
+/* --- UNDER 600PX --- */
+@media all and (max-width: 600px) {
+  form, #userInfo > fieldset {
+      width: 100%;
+      padding: 1em;
+    
+  }
+
+  legend {
+      text-align: center;
+  }
+}

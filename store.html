@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Store</title>
+    <link rel="stylesheet" href="store.css">
+    <link rel="stylesheet" href="menu.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/js/toastr.css">
+
+
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="index.html"><img src="http://petragergely.dk/kea/imgs/game_logo.png" alt="logo" height="80"></a>
+            <div id="slogan">
+              <p>More than 300 games for 9-year olds</p>
+            </div>
+              <nav>
+              <a href="about.html">About us</a>
+              <a href="games.html">Games</a>
+              <a href="store.html">Shop</a>
+              <a href="user.html" id="user"><img src="img/profile.png" alt="user profile" width="45" height="45"></a>
+              <a href="cart.html" id="user"><img src="img/cart.png" alt="shop" width="45" height="45"></a>
+                <div id="mobileMenu"></div>
+              </nav>
+         </div>
+    </header>
+    <main class="store-main-container">
+        <h1>Shop</h1>
+        <div class="section-container" id="productsContainer">
+
+        </div>
+    </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="store.js"></script>
+    <template id="shopEntry">
+        <section>
+            <img class="smacker-img" src="" alt="">
+            <h5>Golden smacker</h5>
+            <p>Smack flies quicker and more effectively thank to its bigger size. It also comes with blings. MANY blings!</p>
+            <div class="price-container">
+                <div>2$</div>
+                <button>Buy</button>
+            </div>
+        </section>
+    </template>
+    <script src="assets/js/toastr.js"></script>
+    <script src="menu.js"></script>
+    <script src="store.js"></script>
+</body>
+</html>
