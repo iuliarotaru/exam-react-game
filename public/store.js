@@ -75,6 +75,8 @@ function doAddItemToCart(item) {
         newBasket.push(item);
         localStorage.setItem('CURRENT_ITEMS_IN_BASKET', JSON.stringify(newBasket));
     }
+
+    doShowAddItemInBacketToast();
 }
 
 function doLoadCartProducts() {
@@ -107,6 +109,25 @@ function doLoadCartProducts() {
     }
 }
 
-function doProcessPayment() {
+function doShowAddItemInBacketToast() {
+    // source: https://www.npmjs.com/package/toastr
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-bottom-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
 
+    toastr["success"]("An item has been added in your basket");
 }
