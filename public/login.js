@@ -60,13 +60,17 @@ function showLogin() {
 }
 
 function hideLogin() {
-    const overlay = document.getElementById('login-screen');
-    const newMenu = document.getElementById("navbar-after-signup");
-    const oldMenu = document.getElementById('navbar-before-signup');
+  const overlay = document.getElementById("remove-after-login");
+  const newMenu = document.getElementById("navbar-after-signup");
+  const oldMenu = document.getElementById("navbar-before-signup");
 
-    overlay.classList.add('hidden');
-    newMenu.classList.remove('hidden');
-    oldMenu.classList.add('hidden');
-
-};
-
+  newMenu.classList.remove("hidden");
+  oldMenu.classList.add("hidden");
+  document
+    .querySelector("#login-screen .text-after-login")
+    .classList.remove("hidden");
+  document
+    .querySelector("#login-screen .react-button-holder")
+    .classList.remove("hidden");
+  overlay.classList.add("hidden");
+}

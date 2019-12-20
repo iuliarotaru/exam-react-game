@@ -173,6 +173,7 @@
         <!--log in screen start-->
         <div class="overlayWrapper hidden" id="login-screen">
           <div class="overlayContent">
+            <div id="remove-after-login">
             <h1 class="centered">Welcome back</h1>
             <form id="logInForm">
               <label for="name">Your username:</label><br />
@@ -188,6 +189,11 @@
                 Log in!
               </button>
             </form>
+          </div>
+            <p class="centered hidden text-after-login">
+                You have successfully logged in. You can now continue playing
+              </p>
+              <div class="react-button-holder hidden"></div>
           </div>
         </div>
         <!--log in screen end-->

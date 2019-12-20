@@ -63,6 +63,7 @@ class App extends Component {
   startLevel = () => {
     document.querySelector("#start-screen").classList.add("hidden");
     document.querySelector("#youLost-screen").classList.add("hidden");
+    document.querySelector("#login-screen").classList.add("hidden");
     //CLEAR ANY INTERVAL THAT WAS STARTED BEFORE
     clearInterval(this.myInterval);
     if (this.state.level.countdown > 0) {
@@ -116,6 +117,7 @@ class App extends Component {
         this.setRenderNewLevel(true);
         document.querySelector("#signup-screen").classList.add("hidden");
         document.querySelector("#youWon-screen").classList.add("hidden");
+        document.querySelector("#login-screen").classList.add("hidden");
       }
     );
   };
@@ -180,6 +182,12 @@ class App extends Component {
         {this.state.level.number === this.levels.length ? null : (
           <>
             <NextLevelButton nextLevelClicked={this.nextLevel} />
+            {this.state.level.number === 1 && this.state.score === 0 ? (
+              <NextLevelAfterLogin nextLevelClicked={this.startLevel} />
+            ) : (
+              <NextLevelAfterLogin nextLevelClicked={this.nextLevel} />
+            )}
+
             <YouWonButton youWonClicked={this.nextLevel} />
           </>
         )}
@@ -198,6 +206,12 @@ function NextLevelButton(props) {
   return ReactDOM.createPortal(
     <button onClick={props.nextLevelClicked}>Next Level</button>,
     document.querySelector("#signup-screen .react-button-holder")
+  );
+}
+function NextLevelAfterLogin(props) {
+  return ReactDOM.createPortal(
+    <button onClick={props.nextLevelClicked}>Next Level</button>,
+    document.querySelector("#login-screen .react-button-holder")
   );
 }
 function YouWonButton(props) {
